@@ -1,10 +1,6 @@
 from sys import stdin
 import heapq
 
-#출력 메소드
-def out(graph):
-    for row in graph:
-        print(row)
 
 input = stdin.readline
 x,y = map(int, input().split())
@@ -34,11 +30,7 @@ while h:
                 heapq.heappush(h, [graph[ny+dy[i]][nx+dx[i]]+dist,nx+dx[i],ny+dy[i]])
     
     
-    
-
-out(visited)
-print()
-out(graph)
+print(graph[-1][-1])
 
 
 
