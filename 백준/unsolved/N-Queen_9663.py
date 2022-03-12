@@ -1,26 +1,41 @@
-num=int(input())
+n = int(input())
 
-row = [0]*num
-answer=0
+y_list = [None]*n
 
-def is_promising(x):
-    for i in range(x):
-        if row[x]==row[i] or abs(row[i]-row[x])==abs(i-x):
+def is_promising(ylist,x):
+    for xi in range(x):
+        if ylist[x]
+    return
+    
+def nq(qlist):
+    
+    
+
+
+"""
+def is_premising(qlist ,nx):
+    for i in range(nx):
+        if nx == qlist[i] or abs(nx-i) == abs():
             return False
     return True
 
-def findpath(x):
-    global answer
+count = 0
 
-    if x==num:
-        answer+=1
-
+def dfs(qlist, loc):
+    qlist[loc[1]] = loc
+    if loc[1] == len(qlist)-1:
+        global count
+        count += 1
     else:
-        for i in range(num):
-            row[x]=i
-            if is_promising(x):
-                findpath(x+1)
+        for i in range(len(qlist)):
+            if is_premising(qlist,[i,loc[1]+1]):
+                temp = qlist
+                temp[loc[1]+1] = [i,loc[1]+1]
+                dfs(temp,[i,loc[1]+1])
 
-findpath(0)
-print(answer)
-    
+qlist = [None]*n
+for i in range(n):
+    qlist = [None]*n
+    dfs(qlist,[i,0])
+print(count)
+"""
