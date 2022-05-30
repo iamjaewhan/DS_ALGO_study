@@ -27,21 +27,18 @@ def bfs():
     
     while q:
         r,c = q.popleft()
-    
         for i in range(4):
             nr = r+dy[i]
             nc = c+dx[i]
             if 0 <= nr < rows and 0 <= nc < cols and m[nr][nc] == 0:
                 m[nr][nc] = 2
                 q.append([nr,nc])
-   
     temp = 0
     for row in m:
         temp += row.count(0)
     
     answer = max(answer, temp)
                 
-    
 def buildWall(built_num):
     if built_num == 3:
         bfs()
