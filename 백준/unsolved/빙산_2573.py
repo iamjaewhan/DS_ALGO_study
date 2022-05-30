@@ -8,57 +8,56 @@ ice = []
 for r in range(row):
     ice.append(list(map(int, input().split())))
     
-#빙산의 영역을 구하는 bfs
-def bfs(x,y):
-    q.append([x,y])
-    while q:
-        cx,cy = q.popleft()
-        visited[cy][cx] = 1
-        
-        for i in range(4):
-            nx = cx+dx[i]
-            ny = cy+dy[i]
-            if 0 <= nx < col and 0 <= ny < row:
-                if ice[ny][nx] != 0 and visited[ny][nx] == 0:
-                    visited[ny][nx] = 1
-                    q.append([nx,ny])
-                elif ice[ny][nx] == 0:
-                    counts[cy][cx] += 1
-                
-    return 
+
+# def getIceberg(ice):
+#     icebergs = []
+#     for r in range(len(ice)):
+#         for c in range(len(ice[r])):
+#             if ice[r][c] == 0:
+#                 for i in range(4):
+#                     nr = r + dy[i]
+#                     nc = c + dx[i]
+#                     if 0 <= nr < len(ice) and 0 <= nc < len(ice[r]) and ice[nr][nc] > 0:
+#                         icebergs.append([nr, nc])
+#     return icebergs
+
+# def melts(icebergs):
+#     for r,c in icebergs:
+#         ice[r][c] = max(0, ice[r][c]-1)
 
 
+# def getIslands(ice):
+#     islands = 0
+#     visited = [[0]*col for _ in range(row)]
+#     for r in range(row):
+#         for c in range(col):
+#             if ice[r][c] > 0 and visited[r][c] == 0:
+#                 islands += 1
+#                 visited[r][c] = 1
+#                 q = deque([[r,c]])
+#                 while q:
+#                     cr, cc = deque.popleft(q)
+#                     for i in range(4):
+#                         nr = cr + dy[i]
+#                         nc = cc + dx[i]
+#                         if 0 <= nr < row and 0 <= nc < col and visited[nr][nc] == 0:
+#                             visited[nr][nc] = 1
+#                             q.append([nr,nc])
+#     return islands
 
-q = deque([])
-count = 0
-while True:
-    visited = [[0]*col for _ in range(row)]
-    counts = [[0]*col for _ in range(row)]
-    islands = 0
+# answer = 0
+# count = 0
+# numOfIcebergs = getIslands(ice)
+# while numOfIcebergs == 1:
+#     melts(getIceberg(ice))
+#     count += 1
+#     numOfIcebergs = getIslands(ice)
     
-    for y in range(row):
-        for x in range(col):
-            if ice[y][x] != 0 and visited[y][x] == 0:
-                islands += bfs(x, y)
-                
+# if numOfIcebergs > 1:
+#     print(count)
+# elif numOfIcebergs == 0:
+#     print(0)
+
     
-    for y in range(row):
-        for x in range(col):
-            ice[y][x] -= counts[y][x]
-            if ice[y][x] < 0:
-                ice[y][x] = 0
-                
-    if islands > 1:
-        count = 0
-        break
-    if islands == 0:
-        break
-    
-    
-    count += 1
-    
-            
-print(count)
                 
                 
-    
