@@ -8,7 +8,4 @@ W = []
 for _ in range(n):
     W.append(list(map(int, input().split())))
     
-def out(gp):
-    for row in gp:
-        print(row)
-        
+
