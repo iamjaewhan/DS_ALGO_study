@@ -12,17 +12,20 @@ answer = 0
 if c == 2:
     print(ed - st)
 else:
+    count = 1
     while st <= ed:
         mid = (st+ed)//2
-        count = 1
+        
         crnt = houses[0]
-        for i in houses:
+        for i in houses[1:]:
             if i - crnt >= mid:
-                count += 1
                 crnt = i
+                count += 1
+
         if count >= c:
             answer = mid
-            st = mid + 1
-        elif count < c:
-            ed = mid - 1
+            st = mid
+        else:
+            ed = mid-1
+                    
     print(answer)    
