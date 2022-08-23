@@ -10,13 +10,13 @@ st, ed = 1, houses[-1] - houses[0]
 answer = 0
 
 if c == 2:
-    print(ed - st)
+    print(houses[-1] - houses[0])
 else:
-    count = 1
-    while st <= ed:
+    while st < ed:
         mid = (st+ed)//2
-        
         crnt = houses[0]
+        count = 1
+
         for i in houses[1:]:
             if i - crnt >= mid:
                 crnt = i
@@ -24,8 +24,8 @@ else:
 
         if count >= c:
             answer = mid
-            st = mid
+            st = mid +1
         else:
-            ed = mid-1
+            ed = mid
                     
     print(answer)    
