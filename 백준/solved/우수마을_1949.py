@@ -10,7 +10,7 @@ popul = [0] + list(map(int, input().split()))
 loads = defaultdict(set)
 visited = [False]*(N+1)
 
-dp = [[0, popul[i]]*2 for i in range(N+1)]
+dp = [[0, popul[i]] for i in range(N+1)]
 
 for i in range(N-1):
     v1, v2 = map(int, input().split())
